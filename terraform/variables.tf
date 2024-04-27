@@ -19,7 +19,7 @@ variable "my_ip" {
 }
 
 
-variable "ansible" {
+variable "ansible_pw" {
   type    = string
 }
 
