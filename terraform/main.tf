@@ -1,8 +1,8 @@
 resource "aws_instance" "linux_server" {
 
-  count                       = 3
+  count                       = 17
   ami                         = "ami-08e168f4c7bff7921"
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   key_name                    = var.key_pair
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.subnet.id
