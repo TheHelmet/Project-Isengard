@@ -1,15 +1,22 @@
 #cloud-config
+users:
+  - name: ansible
+    gecos: Ansible User
+    lock_passwd: false
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_pwauth: true
+    chpasswd:
+      list: |
+        ansible:test
+      expire: False
+
+ssh_pwauth: true
 
 package_update: true
 package_upgrade: true
 
-ssh_pwauth: true
-
-users:
-  - default
-  - name: ansible
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    lock_passwd: false
-    hashed_passwd: "$6$mDwwliMtcfIG$U3whNLGDMn0BR9Wh5SILnXxir.VIIJgWMl3l4m6/1v8nK6EBiyf0FvWhXDwZPHGmB4kT57A81wHtI9lkYe/1i1" # It's "vagrant"
+runcmd:
+  - sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+  - systemctl restart sshd
