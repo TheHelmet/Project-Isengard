@@ -47,11 +47,7 @@ user_data = <<-EOF
               #!/bin/bash
               # Install Docker
               curl -fsSL https://get.docker.com -o get-docker.sh
-              sudo sh ./get-docker.sh --dry-run
-
-              # Start Docker service
-              sudo systemctl start docker
-              sudo systemctl enable docker
+              sudo sh ./get-docker.sh
 
               # Pull and run Docker container
               sudo docker pull nginx  # Replace 'nginx' with your specific image
