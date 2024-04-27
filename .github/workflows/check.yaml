@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-        run: |
-          cd subfolder
+        run:
+          cd terraform
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
