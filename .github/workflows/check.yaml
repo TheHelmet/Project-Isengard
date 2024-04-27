@@ -3,6 +3,9 @@ name: Terraform Validate
 on:
   workflow_dispatch:
 
+env:
+  TF_ROOT: "terraform"
+
 jobs:
   terraform_validate:
     runs-on: ubuntu-latest
