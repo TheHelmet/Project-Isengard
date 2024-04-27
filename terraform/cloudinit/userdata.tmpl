@@ -1,4 +1,4 @@
-#cloud-config
+s#cloud-config
 
 apt:
   sources:
@@ -28,4 +28,5 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     lock_passwd: false
+    ssh_pwauth: true
     plain_text_passwd: var.ansible_pw # It's "vagrant"
