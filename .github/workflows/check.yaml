@@ -31,7 +31,6 @@ jobs:
 
     - name: Terraform Init
       run: terraform init ${{ env.TF_ROOT }}
-      working-directory: ./terraform
 
     - name: Terraform Validate
       run: terraform validate ${{ env.TF_ROOT }}
