@@ -16,7 +16,7 @@ resource "aws_vpc_security_group_egress_rule" "all" {
 
 resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
   security_group_id = aws_security_group.security_group.id
-  description       = "SSH Inbound from runner and my IP"
+  description       = "SSH Inbound from my IP"
   from_port         = 22
   cidr_ipv4         = "${coalesce(var.my_ip, "192.168.0.1")}/32"
   to_port           = 22
@@ -28,4 +28,13 @@ resource "aws_vpc_security_group_ingress_rule" "internal" {
   description       = "Internal communication between hosts"
   cidr_ipv4         = aws_subnet.subnet.cidr_block
   ip_protocol       = -1
+}
+
+resource "aws_vpc_security_group_ingress_rule" "http_inbound_my_ip" {
+  security_group_id = aws_security_group.security_group.id
+  description       = "HTTP Inbound"
+  from_port         = 80
+  cidr_ipv4         = "${coalesce(var.my_ip, "192.168.0.1")}/32"
+  to_port           = 80
+  ip_protocol       = "tcp"
 }
