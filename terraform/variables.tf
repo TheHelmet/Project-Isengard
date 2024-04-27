@@ -18,3 +18,8 @@ variable "my_ip" {
   type    = string
 }
 
+
+variable "ansible" {
+  type    = string
+}
+
