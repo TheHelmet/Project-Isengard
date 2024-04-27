@@ -21,5 +21,6 @@ variable "my_ip" {
 
 variable "ansible_pw" {
   type    = string
+  default = ""
 }
 
