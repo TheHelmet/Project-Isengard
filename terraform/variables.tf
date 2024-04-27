@@ -16,7 +16,6 @@ variable "key_pair" {
 
 variable "my_ip" {
   type    = string
-  default = ${{ secrets.MY_IP }}
 }
 
 variable "pub_key" {
