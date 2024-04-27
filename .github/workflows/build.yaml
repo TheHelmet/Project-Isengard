@@ -4,7 +4,7 @@ on:
 workflow_dispatch: 
 
 jobs:
-  terraform:
+  terraform_build:
     name: 'Terraform-Apply'
     runs-on: ubuntu-latest
     env: 
