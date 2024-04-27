@@ -18,7 +18,7 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
   security_group_id = aws_security_group.security_group.id
   description       = "SSH Inbound from runner and my IP"
   from_port         = 22
-  cidr_ipv4         = "${coalesce(secrets.MY_IP, "192.168.0.1")}/32"
+  cidr_ipv4         = var.my_ip
   to_port           = 22
   ip_protocol       = "tcp"
 }
