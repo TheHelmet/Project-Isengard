@@ -9,12 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_VAR_my_ip: ${{ secrets.MY_IP }}
-
-jobs:
-  terraform_build:
-    runs-on: ubuntu-latest
-    env: 
-      TF_VAR_my_ip: ${{ secrets.MY_IP }}
     
     defaults:
       run:
