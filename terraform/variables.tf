@@ -9,17 +9,12 @@ variable "project" {
 
 variable "key_pair" {
   type    = string
-  default = "Helmet-Keypair"
+  default = "helmet-keypair"
 }
 
 # network information
 
 variable "my_ip" {
   type    = string
-}
-
-variable "pub_key" {
-  type    = string
-  default = ""
 }
 
