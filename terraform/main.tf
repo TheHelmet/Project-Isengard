@@ -39,7 +39,7 @@ resource "aws_instance" "nginx_server" {
   }
 
   tags = {
-    "Name" = "Isengard-${count.index + 1}"  # Unique name for each server
+    "Name" = "Isengard-web-${count.index + 1}"  # Unique name for each server
     "project" = var.project
   }
 
