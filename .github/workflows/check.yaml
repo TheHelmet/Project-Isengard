@@ -2,8 +2,6 @@ name: Terraform Validate
 
 on:
   workflow_dispatch:
-     paths:
-      - 'terraform/**'
 
 jobs:
   terraform_validate:
@@ -15,6 +13,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+       run: |
+          cd subfolder
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
