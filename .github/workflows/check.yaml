@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  TF_ROOT: "terraform"
+  TF_ROOT: "terraform/**"
 
 jobs:
   terraform_validate:
