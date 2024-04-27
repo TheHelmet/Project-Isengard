@@ -19,7 +19,5 @@ resource "aws_instance" "linux_server" {
   }
 
   user_data_base64 = base64encode(templatefile("cloudinit/userdata.tmpl", {
-    gen_key = var.pub_key,
-    install_script = base64encode(file("scripts/config_vnc.sh"))
   }))
 }
