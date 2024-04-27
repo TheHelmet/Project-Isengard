@@ -3,8 +3,8 @@ name: Terraform Validate
 on:
   workflow_dispatch:
 
-env:
-  TF_ROOT: "terraform/**"
+#env:
+#  TF_ROOT: "terraform/**"
 
 jobs:
   terraform_validate:
@@ -31,9 +31,12 @@ jobs:
 
     - name: Terraform Init
       run: terraform init ${{ env.TF_ROOT }}
+      working-directory: ./terraform
 
     - name: Terraform Validate
       run: terraform validate ${{ env.TF_ROOT }}
+      working-directory: ./terraform
 
     - name: Terraform Plan
       run: terraform plan ${{ env.TF_ROOT }}
+      working-directory: ./terraform
