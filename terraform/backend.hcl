@@ -1,3 +1,3 @@
 region = "ap-southeast-2"
-bucket = ""
+bucket = "terraform-nc"
 key = "state/isengard.tfstate"
