@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       TF_VAR_my_ip: ${{ secrets.MY_IP }}
-      TF_VAR_ansible_pw: ${{ secrets.ANSIBLE_PW }}
     
     defaults:
       run:
