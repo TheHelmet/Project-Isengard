@@ -9,6 +9,9 @@ on:
 jobs:
   terraform_validate:
     runs-on: ubuntu-latest
+    env: 
+      TF_VAR_my_ip: ${{ secrets.MY_IP }}
+    
     defaults:
       run:
         working-directory: ./terraform
