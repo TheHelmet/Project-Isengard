@@ -14,8 +14,8 @@ resource "aws_instance" "linux_server" {
   }
 
   tags = {
-    Name    = "Isengard-1
-    project = var.project
+    "Name"    = "Isengard-1"
+    "project" = var.project
   }
 
   user_data_base64 = base64encode(templatefile("cloudinit/userdata.tmpl", {
