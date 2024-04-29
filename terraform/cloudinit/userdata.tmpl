@@ -6,17 +6,9 @@ users:
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh_pwauth: true
-    chpasswd:
-      list: |
-        ansible:test
-      expire: False
-
-ssh_pwauth: true
+    ssh_authorized_keys:
+      - "${gen_key}"
 
 package_update: true
 package_upgrade: true
 
-runcmd:
-  - sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-  - systemctl restart sshd
