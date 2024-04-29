@@ -38,3 +38,11 @@ resource "aws_vpc_security_group_ingress_rule" "http_inbound_my_ip" {
   to_port           = 80
   ip_protocol       = "tcp"
 }
+
+resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_runner_ip" {
+  count             = var.runner_access_enabled == true ? 1 : 0
+  security_group_id = aws_security_group.security_group.id
+  description       = "All Inbound from runner and my IP"
+  cidr_ipv4         = "${chomp(data.http.myip.response_body)}/32"
+  ip_protocol       = -1
+}
