@@ -29,4 +29,4 @@
       command: sh -c "cd /wazuh-docker/single-node"
 
     - name: Run Wazuh
-      command: sh -c "docker-compose up -d
+      command: sh -c "docker-compose up -d"
