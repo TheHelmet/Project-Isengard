@@ -17,16 +17,16 @@
       command: sh -c "sh get-docker.sh"
 
     - name: Enable Docker
-      command: sh -c "sytemctl start docker"
+      command: sytemctl start docker
 
     - name: Get Wazuh
       command: git clone https://github.com/wazuh/wazuh-docker.git -b v4.7.3
 
     - name: Generate Certs
-      command: sh -c "docker-compose -f generate-indexer-certs.yml run --rm generator"
+      command: docker-compose -f generate-indexer-certs.yml run --rm generator
 
     - name: Change directory to /opt
-      command: sh -c "cd /wazuh-docker/single-node"
+      command: cd /wazuh-docker/single-node
 
     - name: Run Wazuh
-      command: sh -c "docker-compose up -d"
+      command: docker-compose up -d
