@@ -1,0 +1,7 @@
+---
+
+isengard:
+  hosts:
+    3.106.134.118:
+      ansible_port: 22
+      ansible_connection: ssh
