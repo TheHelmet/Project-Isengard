@@ -2,6 +2,6 @@
 
 isengard:
   hosts:
-    54.253.132.101:
+    13.211.57.26:
       ansible_port: 22
       ansible_connection: ssh
