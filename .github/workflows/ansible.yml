@@ -12,13 +12,13 @@ on:
           - upgrade.yml
           - watchtower.yml
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
   defaults:
     run:
       working-directory: ./ansible
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
