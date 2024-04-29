@@ -1,17 +1,22 @@
 ---
-- name: Upgrade all packages on a server
+- name: Upgrade all packages on Ubuntu servers
   hosts: all
   become: true
   become_method: sudo
-  vars:
-    ansible_user: admin
-    ansible_ssh_private_key_file: /path/to/keypair1
 
   tasks:
-    - name: Update all packages to the latest version
+    - name: Ensure the system is up to date
       ansible.builtin.apt:
         update_cache: yes
-        upgrade: yes
+        upgrade: 'yes'
         force_apt_get: yes
       become: true
       become_user: root
+
+    - name: Clean up unnecessary packages
+      ansible.builtin.apt:
+        autoclean: yes
+
+    - name: Remove unused packages
+      ansible.builtin.apt:
+        autoremove: yes
