@@ -19,6 +19,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Debug SSH key format
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | head -n 1
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tail -n 1
         
       - name: Setup SSH Agent
         uses: webfactory/ssh-agent@v0.5.3
