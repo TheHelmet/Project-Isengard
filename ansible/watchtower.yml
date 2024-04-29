@@ -1,0 +1,19 @@
+---
+- name: Run various shell commands
+  hosts: all
+  become: true  # Optional, use only if you need elevated privileges
+
+  tasks:
+    - name: Change directory to /opt
+      command: sh -c "cd /opt"
+
+
+    - name: Fetch the Docker Install Script
+      command: curl -fsSL https://get.docker.com -o get-docker.sh
+      register: curl_output
+      ignore_errors: true  # In case the URL is unreachable
+
+    - name: Run the Docker Script
+      command: sh -c "sh get-docker.sh"
+
+
