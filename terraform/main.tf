@@ -43,14 +43,7 @@ resource "aws_instance" "nginx_server" {
     "project" = var.project
   }
 
-user_data = <<-EOF
-              #!/bin/bash
-              # Install Docker
-              curl -fsSL https://get.docker.com -o get-docker.sh
-              sudo sh ./get-docker.sh
+ user_data_base64 = base64encode(templatefile("cloudinit/userdata.tmpl", {
+  }))
 
-              # Pull and run Docker container
-              sudo docker pull nginx  # Replace 'nginx' with your specific image
-              sudo docker run -d -p 80:80 nginx  # Replace 'nginx' and ports with your specific configuration
-              EOF
 }
