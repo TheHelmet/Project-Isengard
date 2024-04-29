@@ -29,7 +29,7 @@ jobs:
           echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
 
       - name: Run Ansible
-       env:
+        env:
           ANSIBLE_HOST_KEY_CHECKING: False
-        working-directory: ./ansible
         run: ansible-playbook -i inventory.yml ${{ github.event.inputs.playbook }}
+        working-directory: ./ansible
