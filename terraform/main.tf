@@ -45,6 +45,7 @@ resource "aws_instance" "nginx_server" {
   }
 
  user_data_base64 = base64encode(templatefile("cloudinit/userdata.tmpl", {
+   gen_key = var.key_pair,
   }))
 
 }
