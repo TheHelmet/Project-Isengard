@@ -25,7 +25,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
 
       - name: Run Ansible
+       env:
+          ANSIBLE_HOST_KEY_CHECKING: False
         working-directory: ./ansible
         run: ansible-playbook -i inventory.yml ${{ github.event.inputs.playbook }}
