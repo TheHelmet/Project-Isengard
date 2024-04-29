@@ -18,3 +18,8 @@ variable "my_ip" {
   type    = string
 }
 
+variable "runner_access_enabled" {
+  type    = bool
+  default = true
+} 
+
