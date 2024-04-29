@@ -12,10 +12,6 @@ on:
           - upgrade.yml
           - watchtower.yml
 
-  defaults:
-    run:
-      working-directory: ./ansible
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -31,4 +27,5 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
 
       - name: Run Ansible
+        working-directory: ./ansible
         run: ansible-playbook -i inventory ${{ github.event.inputs.playbook }}
