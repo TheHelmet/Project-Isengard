@@ -1,8 +1,8 @@
 resource "aws_instance" "linux_server" {
 
-  count                       = 0
+  count                       = 1
   ami                         = "ami-08e168f4c7bff7921"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.large"
   key_name                    = var.key_pair
   associate_public_ip_address = false
   subnet_id                   = aws_subnet.subnet.id
@@ -25,7 +25,7 @@ resource "aws_instance" "linux_server" {
 
 resource "aws_instance" "nginx_server" {
 
-  count                       = 1
+  count                       = 0
   ami                         = "ami-08e168f4c7bff7921"
   instance_type               = "t2.micro"
   key_name                    = var.key_pair
