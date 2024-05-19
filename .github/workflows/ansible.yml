@@ -11,6 +11,7 @@ on:
           - patch.yml
           - upgrade.yml
           - watchtower.yml
+          - teleport.yaml
 
 env:
   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
