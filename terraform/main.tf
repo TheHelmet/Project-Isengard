@@ -4,7 +4,7 @@ resource "aws_instance" "linux_server" {
   ami                         = "ami-08e168f4c7bff7921"
   instance_type               = "t2.large"
   key_name                    = var.key_pair
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   subnet_id                   = aws_subnet.subnet.id
   vpc_security_group_ids      = ["${aws_security_group.security_group.id}"]
 
