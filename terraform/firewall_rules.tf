@@ -32,6 +32,14 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
 #  ip_protocol       = "tcp"
 #}
 
+resource "aws_vpc_security_group_ingress_rule" "teleport_inbound_my_ip" {
+  security_group_id = aws_security_group.security_group.id
+  description       = "Teleport Inbound from my IP"
+  from_port         = 3025
+ cidr_ipv4         = "${coalesce(var.my_ip, "192.168.0.1")}/32"
+ to_port           = 3025
+  ip_protocol       = "tcp"
+}
 
 
 resource "aws_vpc_security_group_ingress_rule" "internal" {
