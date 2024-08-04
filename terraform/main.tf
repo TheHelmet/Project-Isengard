@@ -1,6 +1,6 @@
 resource "aws_instance" "linux_server" {
 
-  count                       = 2
+  count                       = 1
   ami                         = "ami-08e168f4c7bff7921"
   instance_type               = "t2.large"
   key_name                    = var.key_pair
