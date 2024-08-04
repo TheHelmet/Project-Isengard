@@ -23,7 +23,7 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
   ip_protocol       = "tcp"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
+resource "aws_vpc_security_group_ingress_rule" "https_inbound_my_ip" {
   security_group_id = aws_security_group.security_group.id
   description       = "HTTPs Inbound from my IP"
   from_port         = 443
