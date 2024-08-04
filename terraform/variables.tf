@@ -9,7 +9,7 @@ variable "project" {
 
 variable "key_pair" {
   type    = string
-  default = "demo-keypair"
+  default = "helmet-keypair"
 }
 
 # network information
