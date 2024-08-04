@@ -25,7 +25,7 @@ resource "aws_instance" "linux_server" {
 
 resource "aws_instance" "nginx_server" {
 
-  count                       = 13
+  count                       = 0
   ami                         = "ami-08e168f4c7bff7921"
   instance_type               = "t2.micro"
   key_name                    = var.key_pair
