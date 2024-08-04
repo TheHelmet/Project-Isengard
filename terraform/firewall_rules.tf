@@ -32,12 +32,12 @@ resource "aws_vpc_security_group_ingress_rule" "https_inbound_my_ip" {
   ip_protocol       = "tcp"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "teleport_inbound_my_ip" {
+resource "aws_vpc_security_group_ingress_rule" "allow_all_inbound_my_ip" {
   security_group_id = aws_security_group.security_group.id
   description       = "Teleport Inbound from my IP"
-  from_port         = 3025
+  from_port         = -1
  cidr_ipv4         = "${coalesce(var.my_ip, "192.168.0.1")}/32"
- to_port           = 3025
+ to_port           = -1
   ip_protocol       = "tcp"
 }
 
