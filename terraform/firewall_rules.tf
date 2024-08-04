@@ -23,14 +23,14 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
   ip_protocol       = "tcp"
 }
 
-#resource "aws_vpc_security_group_ingress_rule" "SSH_Inbound_ALL" {
-#  security_group_id = aws_security_group.security_group.id
-#  description       = "HTTP Inbound"
-#  from_port         = 22
-#  cidr_ipv4         = "0.0.0.0/0"
-#  to_port           = 22
-#  ip_protocol       = "tcp"
-#}
+resource "aws_vpc_security_group_ingress_rule" "ssh_inbound_my_ip" {
+  security_group_id = aws_security_group.security_group.id
+  description       = "HTTPs Inbound from my IP"
+  from_port         = 443
+ cidr_ipv4         = "${coalesce(var.my_ip, "192.168.0.1")}/32"
+ to_port           = 443
+  ip_protocol       = "tcp"
+}
 
 resource "aws_vpc_security_group_ingress_rule" "teleport_inbound_my_ip" {
   security_group_id = aws_security_group.security_group.id
